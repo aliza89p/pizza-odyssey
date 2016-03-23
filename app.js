@@ -148,38 +148,44 @@ oneAM.driversNeeded = Math.ceil(deliveriesOneAM / 3);
 
 var dataArray = [eightAM, nineAM, tenAM, elevenAM, twelveNoon, onePM, twoPM, threePM, fourPM, fivePM, sixPM, sevenPM, eightPM, ninePM, tenPM, elevenPM, twelveMidnight, oneAM];
 
-// function objectContent(){
-//   for(i = 0, i < dataArray.length, i++){
-//
-//   }
-// }
+var ballardId = document.getElementById('ballard');
+for(var i = 0; i < dataArray.length; i++) {
+  var liTag = document.createElement('li');
+  liTag.textContent = dataArray[i];
+  ballardId.appendChild(liTag);
+}
 
-// // create an element and add it to the end of the dom
-// // 1) create the element
+var firstHillId = document.getElementById('firstHill');
+for(var i = 0; i < dataArray.length; i++){
+  var liTag = document.createElement('li');
+  liTag.textContent = dataArray[i];
+  firstHillId.appendChild(liTag);
+}
 
-var litag = document.createElement('li');
+var internationalDistrictId = document.getElementById('internationalDistrict');
+for(var i = 0; i < dataArray.length; i++){
+  var liTag = document.createElement('li');
+  liTag.textContent = dataArray[i];
+  internationalDistrictId.appendChild(liTag);
+}
 
-//
-// // 2) set the content and/or any atributes
-// // to set an atribute use .setAttribute(<atributeName>, <atributeValue>)
+var SLUId = document.getElementById('SLU');
+for(var i = 0; i < dataArray.length; i++){
+  var liTag = document.createElement('li');
+  liTag.textContent = dataArray[i];
+  SLUId.appendChild(liTag);
+}
 
-litag.setAttribute('id', 'ballard');
+var georgetownId = document.getElementById('georgetown');
+for(var i = 0; i < dataArray.length; i++){
+  var liTag = document.createElement('li');
+  liTag.textContent = dataArray;
+  georgetownId.appendChild(liTag);
+}
 
-// // set the content
-
-litag.textContent = 'hello world';
-
-//
-// //3) add the tag to the body
-
-document.body.appendChild(litag);
-
-//
-// // add an element to a tag with an id on the page
-// // 1) get a reference to the element in the dom using getElementById(<id>)
-// var bodyHeader = document.getElementById('body-header');
-// // 2) create a new element
-// var pageHeading = document.createElement('h1');
-// pageHeading.textContent = 'best page heading ever!';
-// // 3) add the element to the element with the id
-// bodyHeader.appendChild(pageHeading);
+var ravennaId = document.getElementById('ravenna');
+for(var i = 0; i < dataArray.length; i++){
+  var liTag = document.createElement('li');
+  liTag.textContent = dataArray[i];
+  ravennaId.appendChild(liTag);
+}
