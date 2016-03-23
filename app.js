@@ -151,41 +151,41 @@ var dataArray = [eightAM, nineAM, tenAM, elevenAM, twelveNoon, onePM, twoPM, thr
 var ballardId = document.getElementById('ballard');
 for(var i = 0; i < dataArray.length; i++) {
   var liTag = document.createElement('li');
-  liTag.textContent = dataArray[i];
+  liTag.textContent = dataArray[i].time + ' ' + dataArray[i].pizzasSold + ' pizzas, ' + dataArray[i].deliveriesMade + ' deliveries -- [drivers recommended: ' + dataArray[i].driversNeeded + ']';
   ballardId.appendChild(liTag);
 }
 
 var firstHillId = document.getElementById('firstHill');
 for(var i = 0; i < dataArray.length; i++){
   var liTag = document.createElement('li');
-  liTag.textContent = dataArray[i];
+  liTag.textContent = dataArray[i].time + ' ' + dataArray[i].pizzasSold + ' pizzas, ' + dataArray[i].deliveriesMade + ' deliveries -- [drivers recommended: ' + dataArray[i].driversNeeded + ']';
   firstHillId.appendChild(liTag);
 }
 
 var internationalDistrictId = document.getElementById('internationalDistrict');
 for(var i = 0; i < dataArray.length; i++){
   var liTag = document.createElement('li');
-  liTag.textContent = dataArray[i];
+  liTag.textContent = dataArray[i].time + ' ' + dataArray[i].pizzasSold + ' pizzas, ' + dataArray[i].deliveriesMade + ' deliveries -- [drivers recommended: ' + dataArray[i].driversNeeded + ']';
   internationalDistrictId.appendChild(liTag);
 }
 
 var SLUId = document.getElementById('SLU');
 for(var i = 0; i < dataArray.length; i++){
   var liTag = document.createElement('li');
-  liTag.textContent = dataArray[i];
+  liTag.textContent = dataArray[i].time + ' ' + dataArray[i].pizzasSold + ' pizzas, ' + dataArray[i].deliveriesMade + ' deliveries -- [drivers recommended: ' + dataArray[i].driversNeeded + ']';
   SLUId.appendChild(liTag);
 }
 
 var georgetownId = document.getElementById('georgetown');
 for(var i = 0; i < dataArray.length; i++){
   var liTag = document.createElement('li');
-  liTag.textContent = dataArray;
+  liTag.textContent = dataArray[i].time + ' ' + dataArray[i].pizzasSold + ' pizzas, ' + dataArray[i].deliveriesMade + ' deliveries -- [drivers recommended: ' + dataArray[i].driversNeeded + ']';
   georgetownId.appendChild(liTag);
 }
 
 var ravennaId = document.getElementById('ravenna');
 for(var i = 0; i < dataArray.length; i++){
   var liTag = document.createElement('li');
-  liTag.textContent = dataArray[i];
+  liTag.textContent = dataArray[i].time + ' ' + dataArray[i].pizzasSold + ' pizzas, ' + dataArray[i].deliveriesMade + ' deliveries -- [drivers recommended: ' + dataArray[i].driversNeeded + ']';
   ravennaId.appendChild(liTag);
 }
