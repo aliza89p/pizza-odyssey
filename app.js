@@ -1,3 +1,5 @@
+'use strict';
+
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -254,13 +256,45 @@ repeatTable(georgetown, 'georgetown');
 
 repeatTable(ravenna, 'ravenna');
 
+function collectDataInfo(event){
+  event.preventDefault();
+
+  var storeTable = document.getElementById('input-store-table');
+
+  var storeLocation = event.target.storeLocation.value;
+  console.log('getting input for store', storeLocation);
+
+  var storeHeading = document.createElement('h1');
+  storeHeading.textContent = storeLocation;
+  console.log('putting text content in h1 ', storeHeading);
+
+  // var timeStringOne = event.target.timeStringOne.value;
+  // console.log('getting input for store', timeStringOne);
+  //
+  // var timeStringTwo = event.target.timeStringOne.value;
+  // console.log('getting input for store', timeStringTwo);
+  //
+  //
+  // var storeRow = document.createElement('tr');
+  // storeColumn.textContent = storeRow;
+  //
+  // var storeColumn = document.createElement('td');
+  // storeRow.textContent = timeStringOne;
+  //
+  storeTable.appendChild(storeHeading);
+}
+
+var createStoreForm = document.getElementById('input-data-form');
+
+createStoreForm.addEventListener('submit', collectDataInfo);
+
 // // Figure out how to add exact total number of pizzas this week to index.html:
 //
 // //Work on this code:
-// // function weeklyPizzas() {
-// //   var pizzaTag = document.getElementById('pizzasThisWeek');
-// //   var pTag = document.createElement('p');
-// //   pTag.textContent = 'best page heading ever!';
-// // }
-// // weeklyPizzas();
-// // console.log('number of weekly pizzas for homepage');
+// function weeklyPizzas() {
+//   var pizzaTag = document.getElementById('pizzasThisWeek');
+//   var pTag = document.createElement('p');
+//   pTag.textContent = 'best page heading ever!';
+// }
+// weeklyPizzas();
+// console.log('number of weekly pizzas for homepage');
