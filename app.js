@@ -5,19 +5,19 @@ function getRandomIntInclusive(min, max) {
 var eightAM = {
   time: '8:00am',
   pizzasSold: getRandomIntInclusive(0, 4),
-  deliveriesMade: getRandomIntInclusive(0, 4)
+  deliveriesMade: getRandomIntInclusive(0, 4),
+  driversNeeded: Math.ceil(eightAM.deliveriesMade / 3)
 };
-var deliveriesEightAM = eightAM.deliveriesMade;
-eightAM.driversNeeded = Math.ceil(deliveriesEightAM / 3);
+
+eightAM.
 console.log('8am object');
 
 var nineAM = {
   time: '9:00am',
   pizzasSold: getRandomIntInclusive(0, 4),
-  deliveriesMade: getRandomIntInclusive(0, 4)
+  deliveriesMade: getRandomIntInclusive(0, 4),
+  driversNeeded: Math.ceil(nineAM.deliveriesMade / 3)
 };
-var deliveriesNineAM = nineAM.deliveriesMade;
-nineAM.driversNeeded = Math.ceil(deliveriesNineAM / 3);
 console.log('9am object');
 
 var tenAM = {
