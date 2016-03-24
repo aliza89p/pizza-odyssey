@@ -260,28 +260,50 @@ function collectDataInfo(event){
   event.preventDefault();
 
   var storeTable = document.getElementById('input-store-table');
+  var storeTableHeading = document.getElementById('thead');
+
+  var labelRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
 
   var storeLocation = event.target.storeLocation.value;
   console.log('getting input for store', storeLocation);
 
-  var storeHeading = document.createElement('h1');
-  storeHeading.textContent = storeLocation;
-  console.log('putting text content in h1 ', storeHeading);
+  var timeStringOne = event.target.timeStringOne.value;
+  console.log('getting input for time', timeStringOne);
 
-  // var timeStringOne = event.target.timeStringOne.value;
-  // console.log('getting input for store', timeStringOne);
-  //
-  // var timeStringTwo = event.target.timeStringOne.value;
-  // console.log('getting input for store', timeStringTwo);
-  //
-  //
-  // var storeRow = document.createElement('tr');
-  // storeColumn.textContent = storeRow;
-  //
-  // var storeColumn = document.createElement('td');
-  // storeRow.textContent = timeStringOne;
-  //
-  storeTable.appendChild(storeHeading);
+  var pizzasMinOne = event.target.pizzasMinOne.value;
+  console.log('getting input for pizzasMinOne', pizzasMinOne);
+
+  var pizzasMaxOne = event.target.pizzasMaxOne.value;
+  console.log('getting input for pizzasMaxOne', pizzasMaxOne);
+
+  var deliveriesMinOne = event.target.deliveriesMinOne.value;
+  console.log('getting input for deliveriesMinOne', deliveriesMinOne);
+
+  var deliveriesMaxOne = event.target.deliveriesMaxOne.value;
+  console.log('getting input for deliveriesMaxOne', deliveriesMaxOne);
+
+  var storeHeading = document.createElement('h1');
+  console.log('creating variable for h1 ', storeHeading);
+
+  var timeRowOne = document.createElement('tr');
+  console.log('creating variable for row ', timeRowOne);
+
+  var timeColumn = document.createElement('td');
+  console.log('creating variable for column ', timeColumn);
+
+  storeHeading.textContent = storeLocation;
+  storeTableHeading.appendChild(storeHeading);
+  console.log('appending location heading');
+
+  storeTable.appendChild(labelRow);
+  console.log('appending label row to table');
+
+  timeColumn.textContent = timeStringOne;
+  console.log('getting location user input text');
+
+  timeRowOne.appendChild(timeColumn);
+  console.log('appending the time data to a row');
+
 }
 
 var createStoreForm = document.getElementById('input-data-form');
