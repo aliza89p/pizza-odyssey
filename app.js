@@ -291,9 +291,9 @@ function collectDataInfo(event){
   var userLocation = new PizzaLocation(storeLocation);
   var hourlyData = new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxOne);
 
-  userLocation.pushHourlyData(hourlyData);
+  var newUserLocation = new PizzaLocation('input-data-form');
+  newUserLocation.pushHourlyData(new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxTwo));
 
-//code for adding table location heading below
   var storeTableHeading = document.getElementById('thead');
   var storeHeading = document.createElement('h1');
   console.log('creating variable for h1 ', storeHeading);
@@ -301,6 +301,17 @@ function collectDataInfo(event){
   storeHeading.textContent = storeLocation;
   storeTableHeading.appendChild(storeHeading);
   console.log('displaying location heading');
+
+  var createTableData = document.createElement('table');
+  for(var i = 0; i < hourlyData.length; i++){
+    var genericRow = generateDataRow([createStoreForm.hourlyData[i].time, createStoreForm.hourlyData[i].pizzasSold, createStoreForm.hourlyData[i].deliveriesMade, createStoreForm.hourlyData[i].driversNeeded]);
+    dataTable.appendChild(genericRow);
+    console.log('creating table');
+  }
+  var labelRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
+
+  document.getElementById('thead').appendChild(labelRow);
+  document.getElementById('input-data-form').appendChild(createTableData);
 }
 
 var createStoreForm = document.getElementById('input-data-form');
