@@ -7,7 +7,10 @@ function getRandomIntInclusive(min, max) {
 function PizzaLocation(name){
   this.name = name;
   this.hourlyData = [];
+
 }
+
+//Use constructor? ^^^^^^
 
 PizzaLocation.prototype.pushHourlyData = function(data){
   this.hourlyData.push(data);
@@ -171,77 +174,11 @@ function repeatTable(dataLocation, locationId) {
 
   dataTable.appendChild(labelRow);
 
-  var eightAmRow = generateDataRow([dataLocation.hourlyData[0].time, dataLocation.hourlyData[0].pizzasSold, dataLocation.hourlyData[0].deliveriesMade, dataLocation.hourlyData[0].driversNeeded]);
-
-  dataTable.appendChild(eightAmRow);
-
-  var nineAmRow = generateDataRow([dataLocation.hourlyData[1].time, dataLocation.hourlyData[1].pizzasSold, dataLocation.hourlyData[1].deliveriesMade, dataLocation.hourlyData[1].driversNeeded]);
-
-  dataTable.appendChild(nineAmRow);
-
-  var tenAmRow = generateDataRow([dataLocation.hourlyData[2].time, dataLocation.hourlyData[2].pizzasSold, dataLocation.hourlyData[2].deliveriesMade, dataLocation.hourlyData[2].driversNeeded]);
-
-  dataTable.appendChild(tenAmRow);
-
-  var elevenAmRow = generateDataRow([dataLocation.hourlyData[3].time, dataLocation.hourlyData[3].pizzasSold, dataLocation.hourlyData[3].deliveriesMade, dataLocation.hourlyData[3].driversNeeded]);
-
-  dataTable.appendChild(elevenAmRow);
-
-  var twelveNoonRow = generateDataRow([dataLocation.hourlyData[4].time, dataLocation.hourlyData[4].pizzasSold, dataLocation.hourlyData[4].deliveriesMade, dataLocation.hourlyData[4].driversNeeded]);
-
-  dataTable.appendChild(twelveNoonRow);
-
-  var onePmRow = generateDataRow([dataLocation.hourlyData[5].time, dataLocation.hourlyData[5].pizzasSold, dataLocation.hourlyData[5].deliveriesMade, dataLocation.hourlyData[5].driversNeeded]);
-
-  dataTable.appendChild(onePmRow);
-
-  var twoPmRow = generateDataRow([dataLocation.hourlyData[6].time, dataLocation.hourlyData[6].pizzasSold, dataLocation.hourlyData[6].deliveriesMade, dataLocation.hourlyData[6].driversNeeded]);
-
-  dataTable.appendChild(twoPmRow);
-
-  var threePmRow = generateDataRow([dataLocation.hourlyData[7].time, dataLocation.hourlyData[7].pizzasSold, dataLocation.hourlyData[7].deliveriesMade, dataLocation.hourlyData[7].driversNeeded]);
-
-  dataTable.appendChild(threePmRow);
-
-  var fourPmRow = generateDataRow([dataLocation.hourlyData[8].time, dataLocation.hourlyData[8].pizzasSold, dataLocation.hourlyData[8].deliveriesMade, dataLocation.hourlyData[8].driversNeeded]);
-
-  dataTable.appendChild(fourPmRow);
-
-  var fivePmRow = generateDataRow([dataLocation.hourlyData[9].time, dataLocation.hourlyData[9].pizzasSold, dataLocation.hourlyData[9].deliveriesMade, dataLocation.hourlyData[9].driversNeeded]);
-
-  dataTable.appendChild(fivePmRow);
-
-  var sixPmRow = generateDataRow([dataLocation.hourlyData[10].time, dataLocation.hourlyData[10].pizzasSold, dataLocation.hourlyData[10].deliveriesMade, dataLocation.hourlyData[10].driversNeeded]);
-
-  dataTable.appendChild(sixPmRow);
-
-  var sevenPmRow = generateDataRow([dataLocation.hourlyData[11].time, dataLocation.hourlyData[11].pizzasSold, dataLocation.hourlyData[11].deliveriesMade, dataLocation.hourlyData[11].driversNeeded]);
-
-  dataTable.appendChild(sevenPmRow);
-
-  var eightPmRow = generateDataRow([dataLocation.hourlyData[12].time, dataLocation.hourlyData[12].pizzasSold, dataLocation.hourlyData[12].deliveriesMade, dataLocation.hourlyData[12].driversNeeded]);
-
-  dataTable.appendChild(eightPmRow);
-
-  var ninePmRow = generateDataRow([dataLocation.hourlyData[13].time, dataLocation.hourlyData[13].pizzasSold, dataLocation.hourlyData[13].deliveriesMade, dataLocation.hourlyData[13].driversNeeded]);
-
-  dataTable.appendChild(ninePmRow);
-
-  var tenPmRow = generateDataRow([dataLocation.hourlyData[14].time, dataLocation.hourlyData[14].pizzasSold, dataLocation.hourlyData[14].deliveriesMade, dataLocation.hourlyData[14].driversNeeded]);
-
-  dataTable.appendChild(tenPmRow);
-
-  var elevenPmRow = generateDataRow([dataLocation.hourlyData[15].time, dataLocation.hourlyData[15].pizzasSold, dataLocation.hourlyData[15].deliveriesMade, dataLocation.hourlyData[15].driversNeeded]);
-
-  dataTable.appendChild(elevenPmRow);
-
-  var twelveMidnightRow = generateDataRow([dataLocation.hourlyData[16].time, dataLocation.hourlyData[16].pizzasSold, dataLocation.hourlyData[16].deliveriesMade, dataLocation.hourlyData[16].driversNeeded]);
-
-  dataTable.appendChild(twelveMidnightRow);
-
-  var oneAmRow = generateDataRow([dataLocation.hourlyData[17].time, dataLocation.hourlyData[17].pizzasSold, dataLocation.hourlyData[17].deliveriesMade, dataLocation.hourlyData[17].driversNeeded]);
-
-  dataTable.appendChild(oneAmRow);
+  var createTableData = document.getElementById(locationId);
+  for(var i = 0; i < dataLocation.hourlyData.length; i++){
+    var genericRow = generateDataRow([dataLocation.hourlyData[i].time, dataLocation.hourlyData[i].pizzasSold, dataLocation.hourlyData[i].deliveriesMade, dataLocation.hourlyData[i].driversNeeded]);
+    dataTable.appendChild(genericRow);
+  }
 }
 
 repeatTable(ballard, 'ballard');
@@ -259,64 +196,52 @@ repeatTable(ravenna, 'ravenna');
 function collectDataInfo(event){
   event.preventDefault();
 
-  var storeTable = document.getElementById('input-store-table');
-  var storeTableHeading = document.getElementById('thead');
-
-  var labelRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
   var storeLocation = event.target.storeLocation.value;
   console.log('getting input for store', storeLocation);
 
   var timeStringOne = event.target.timeStringOne.value;
-  console.log('getting input for time', timeStringOne);
+  console.log('getting input from timeStringOne', timeStringOne);
 
-  var pizzasMinOne = event.target.pizzasMinOne.value;
+  var pizzasMinOne = parseInt(event.target.pizzasMinOne.value);
   console.log('getting input for pizzasMinOne', pizzasMinOne);
 
-  var pizzasMaxOne = event.target.pizzasMaxOne.value;
+  var pizzasMaxOne = parseInt(event.target.pizzasMaxOne.value);
   console.log('getting input for pizzasMaxOne', pizzasMaxOne);
 
-  var deliveriesMinOne = event.target.deliveriesMinOne.value;
+  var deliveriesMinOne = parseInt(event.target.deliveriesMinOne.value);
   console.log('getting input for deliveriesMinOne', deliveriesMinOne);
 
-  var deliveriesMaxOne = event.target.deliveriesMaxOne.value;
+  var deliveriesMaxOne = parseInt(event.target.deliveriesMaxOne.value);
   console.log('getting input for deliveriesMaxOne', deliveriesMaxOne);
 
+  var userLocation = new PizzaLocation(storeLocation);
+  var hourlyData = new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxOne);
+
+  userLocation.pushHourlyData(hourlyData);
+
+//code for adding table location heading below
+  var storeTableHeading = document.getElementById('thead');
   var storeHeading = document.createElement('h1');
   console.log('creating variable for h1 ', storeHeading);
 
-  var timeRowOne = document.createElement('tr');
-  console.log('creating variable for row ', timeRowOne);
-
-  var timeColumn = document.createElement('td');
-  console.log('creating variable for column ', timeColumn);
-
   storeHeading.textContent = storeLocation;
   storeTableHeading.appendChild(storeHeading);
-  console.log('appending location heading');
-
-  storeTable.appendChild(labelRow);
-  console.log('appending label row to table');
-
-  timeColumn.textContent = timeStringOne;
-  console.log('getting location user input text');
-
-  timeRowOne.appendChild(timeColumn);
-  console.log('appending the time data to a row');
-
+  console.log('displaying location heading');
 }
 
 var createStoreForm = document.getElementById('input-data-form');
 
 createStoreForm.addEventListener('submit', collectDataInfo);
 
-// // Figure out how to add exact total number of pizzas this week to index.html:
-//
-// //Work on this code:
-// function weeklyPizzas() {
-//   var pizzaTag = document.getElementById('pizzasThisWeek');
-//   var pTag = document.createElement('p');
-//   pTag.textContent = 'best page heading ever!';
-// }
-// weeklyPizzas();
-// console.log('number of weekly pizzas for homepage');
+if (document.getElementById('pizzasThisWeek')){
+  // // Figure out how to add exact total number of pizzas this week to index.html:
+  //
+  // //Work on this code:
+  // function weeklyPizzas() {
+  //   var pizzaTag = document.getElementById('pizzasThisWeek');
+  //   var pTag = document.createElement('p');
+  //   pTag.textContent = 'best page heading ever!';
+  // }
+  // weeklyPizzas();
+  // console.log('number of weekly pizzas for homepage');
+}
