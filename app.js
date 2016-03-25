@@ -42,6 +42,7 @@ ballard.pushHourlyData(new HourlyData('10:00 pm', 1,3, 4, 12));
 ballard.pushHourlyData(new HourlyData('11:00 pm', 8, 15, 6, 16));
 ballard.pushHourlyData(new HourlyData('12:00 midnight', 8, 15, 6, 16));
 ballard.pushHourlyData(new HourlyData('1:00 am', 8, 15, 6, 16));
+ballard.name = 'Ballard';
 
 var firstHill = new PizzaLocation('firstHill');
 firstHill.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
@@ -62,6 +63,7 @@ firstHill.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
 firstHill.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
 firstHill.pushHourlyData(new HourlyData('12 midnight', 8, 20, 6, 16));
 firstHill.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
+firstHill.name = 'First Hill';
 
 var iDistrict = new PizzaLocation('iDistrict');
 iDistrict.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
@@ -82,6 +84,7 @@ iDistrict.pushHourlyData(new HourlyData('10:00 pm', 8, 22, 7, 15));
 iDistrict.pushHourlyData(new HourlyData('11:00 pm', 0, 2, 2, 18));
 iDistrict.pushHourlyData(new HourlyData('12 midnight', 0, 2, 2, 18));
 iDistrict.pushHourlyData(new HourlyData('1:00 am', 0, 2, 2, 18));
+iDistrict.name = 'International District';
 
 var slu = new PizzaLocation('slu');
 slu.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
@@ -102,6 +105,7 @@ slu.pushHourlyData(new HourlyData('10:00 pm', 22, 36, 5, 22));
 slu.pushHourlyData(new HourlyData('11:00 pm', 5, 21, 16, 31));
 slu.pushHourlyData(new HourlyData('12 midnight', 5, 21, 16, 31));
 slu.pushHourlyData(new HourlyData('1:00 am', 5, 21, 16, 31));
+slu.name = 'South Lake Union';
 
 var georgetown = new PizzaLocation('georgetown');
 georgetown.pushHourlyData(new HourlyData('8:00 am', 2, 7, 3, 5));
@@ -122,6 +126,7 @@ georgetown.pushHourlyData(new HourlyData('10:00 pm', 22, 41, 15, 42));
 georgetown.pushHourlyData(new HourlyData('11:00 pm', 15, 20, 6, 21));
 georgetown.pushHourlyData(new HourlyData('12 midnight', 15, 20, 6, 21));
 georgetown.pushHourlyData(new HourlyData('1:00 am', 15, 20, 6, 21));
+georgetown.name = 'Georgetown';
 
 var ravenna = new PizzaLocation('ravenna');
 ravenna.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
@@ -142,6 +147,7 @@ ravenna.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
 ravenna.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
 ravenna.pushHourlyData(new HourlyData('12 midnight', 2, 4, 3, 11));
 ravenna.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
+ravenna.name = 'Ravenna';
 
 function generateDataRow(hourlyData){
   var row = document.createElement('tr');
@@ -164,34 +170,48 @@ function generateHeadingRow(hourlyData){
   }
   return row;
 }
+// var storeTableHeading = document.getElementById('thead');
+// var storeHeading = document.createElement('h1');
+// console.log('creating variable for h1 ', storeHeading);
+//
+// storeHeading.textContent = storeLocation;
+// storeTableHeading.appendChild(storeHeading);
+// console.log('displaying location heading');
 
-function repeatTable(dataLocation, locationId) {
+function repeatTable(dataLocation) {
+
   var labelRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
 
   var dataTable = document.createElement('table');
 
-  document.getElementById(locationId).appendChild(dataTable);
+  var locationHeading = document.createElement('h1');
+
+  locationHeading.textContent = dataLocation.name;
+
+  document.getElementById('tables').appendChild(locationHeading);
+  document.getElementById('tables').appendChild(dataTable);
 
   dataTable.appendChild(labelRow);
 
-  var createTableData = document.getElementById(locationId);
+  var createTableData = document.getElementById('tables');
+
   for(var i = 0; i < dataLocation.hourlyData.length; i++){
     var genericRow = generateDataRow([dataLocation.hourlyData[i].time, dataLocation.hourlyData[i].pizzasSold, dataLocation.hourlyData[i].deliveriesMade, dataLocation.hourlyData[i].driversNeeded]);
     dataTable.appendChild(genericRow);
   }
 }
 
-repeatTable(ballard, 'ballard');
+repeatTable(ballard);
 
-repeatTable(firstHill, 'firstHill');
+repeatTable(firstHill);
 
-repeatTable(iDistrict, 'iDistrict');
+repeatTable(iDistrict);
 
-repeatTable(slu, 'slu');
+repeatTable(slu);
 
-repeatTable(georgetown, 'georgetown');
+repeatTable(georgetown);
 
-repeatTable(ravenna, 'ravenna');
+repeatTable(ravenna);
 
 function collectDataInfo(event){
   event.preventDefault();
@@ -288,30 +308,23 @@ function collectDataInfo(event){
   var deliveriesMinEightteen = parseInt(event.target.deliveriesMinEightteen.value);
   var deliveriesMaxEightteen = parseInt(event.target.deliveriesMaxEightteen.value);
   console.log('testing input being turned into variables. Store location ', storeLocation, 'timeStringOne ', timeStringOne, 'pizzasMinOne ', pizzasMinOne, 'pizzasMaxOne ', pizzasMaxOne, 'deliveriesMinOne ', deliveriesMinOne, 'deliveries MaxOne ', deliveriesMaxOne, 'timeStringEightteen ', timeStringEightteen, 'deliveriesMaxEightteen ', deliveriesMaxSeventeen);
-  var userLocation = new PizzaLocation(storeLocation);
-  var hourlyData = new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxOne);
 
-  var newUserLocation = new PizzaLocation('input-data-form');
-  newUserLocation.pushHourlyData(new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxTwo));
+  // var hourlyData = new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxOne);
+  //
+  // var newUserLocation = new PizzaLocation('input-data-form');
+  // newUserLocation.pushHourlyData(new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxTwo));
 
-  var storeTableHeading = document.getElementById('thead');
-  var storeHeading = document.createElement('h1');
-  console.log('creating variable for h1 ', storeHeading);
+  var newLocationFromForm = new PizzaLocation('newLocationFromForm');
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxOne));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringTwo, pizzasMinTwo, pizzasMaxTwo, deliveriesMinTwo, deliveriesMaxTwo));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringThree, pizzasMinThree, pizzasMaxThree, deliveriesMinThree, deliveriesMaxThree));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringFour, pizzasMinFour, pizzasMaxFour, deliveriesMinFour, deliveriesMaxFour));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringFive, pizzasMinFive, pizzasMaxFive, deliveriesMinFive, deliveriesMaxFive));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringSix, pizzasMinSix, pizzasMaxSix, deliveriesMinSix, deliveriesMaxSix));
 
-  storeHeading.textContent = storeLocation;
-  storeTableHeading.appendChild(storeHeading);
-  console.log('displaying location heading');
+  newLocationFromForm.name = storeLocation;
 
-  var createTableData = document.createElement('table');
-  for(var i = 0; i < hourlyData.length; i++){
-    var genericRow = generateDataRow([createStoreForm.hourlyData[i].time, createStoreForm.hourlyData[i].pizzasSold, createStoreForm.hourlyData[i].deliveriesMade, createStoreForm.hourlyData[i].driversNeeded]);
-    dataTable.appendChild(genericRow);
-    console.log('creating table');
-  }
-  var labelRow = generateHeadingRow(['Time', 'Pizzas Sold', 'Deliveries Made', 'Drivers Needed']);
-
-  document.getElementById('thead').appendChild(labelRow);
-  document.getElementById('input-data-form').appendChild(createTableData);
+  repeatTable(newLocationFromForm);
 }
 
 var createStoreForm = document.getElementById('input-data-form');
