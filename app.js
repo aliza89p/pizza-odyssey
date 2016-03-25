@@ -321,6 +321,18 @@ function collectDataInfo(event){
   newLocationFromForm.pushHourlyData(new HourlyData(timeStringFour, pizzasMinFour, pizzasMaxFour, deliveriesMinFour, deliveriesMaxFour));
   newLocationFromForm.pushHourlyData(new HourlyData(timeStringFive, pizzasMinFive, pizzasMaxFive, deliveriesMinFive, deliveriesMaxFive));
   newLocationFromForm.pushHourlyData(new HourlyData(timeStringSix, pizzasMinSix, pizzasMaxSix, deliveriesMinSix, deliveriesMaxSix));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringSeven, pizzasMinSeven, pizzasMaxSeven, deliveriesMinSeven, deliveriesMaxSeven));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringEight, pizzasMinEight, pizzasMaxEight, deliveriesMinEight, deliveriesMaxEight));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringNine, pizzasMinNine, pizzasMaxNine, deliveriesMinNine, deliveriesMaxNine));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringTen, pizzasMinTen, pizzasMaxTen, deliveriesMinTen, deliveriesMaxTen));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringEleven, pizzasMinEleven, pizzasMaxEleven, deliveriesMinEleven, deliveriesMaxEleven));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringTwelve, pizzasMinTwelve, pizzasMaxTwelve, deliveriesMinTwelve, deliveriesMaxTwelve));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringThirteen, pizzasMinThirteen, pizzasMaxThirteen, deliveriesMinThirteen, deliveriesMaxThirteen));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringFourteen, pizzasMinFourteen, pizzasMaxFourteen, deliveriesMinFourteen, deliveriesMaxFourteen));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringFifteen, pizzasMinFifteen, pizzasMaxFifteen, deliveriesMinFifteen, deliveriesMaxFifteen));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringSixteen, pizzasMinSixteen, pizzasMaxSixteen, deliveriesMinSixteen, deliveriesMaxSixteen));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringSeventeen, pizzasMinSeventeen, pizzasMaxSeventeen, deliveriesMinSeventeen, deliveriesMaxSeventeen));
+  newLocationFromForm.pushHourlyData(new HourlyData(timeStringEightteen, pizzasMinEightteen, pizzasMaxEightteen, deliveriesMinEightteen, deliveriesMaxEightteen));
 
   newLocationFromForm.name = storeLocation;
 
