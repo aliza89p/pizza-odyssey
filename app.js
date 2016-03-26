@@ -1,13 +1,13 @@
 'use strict';
-if (document.getElementById('form' || 'tables')){
-  function getRandomIntInclusive(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+if (document.getElementById('salesDataHtml')){
 
   function PizzaLocation(name){
     this.name = name;
     this.hourlyData = [];
-
   }
 
   //Use constructor? ^^^^^^
@@ -314,7 +314,7 @@ if (document.getElementById('form' || 'tables')){
     // var newUserLocation = new PizzaLocation('input-data-form');
     // newUserLocation.pushHourlyData(new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxTwo));
 
-    var newLocationFromForm = new PizzaLocation('newLocationFromForm');
+    var newLocationFromForm = new PizzaLocation(storeLocation);
     newLocationFromForm.pushHourlyData(new HourlyData(timeStringOne, pizzasMinOne, pizzasMaxOne, deliveriesMinOne, deliveriesMaxOne));
     newLocationFromForm.pushHourlyData(new HourlyData(timeStringTwo, pizzasMinTwo, pizzasMaxTwo, deliveriesMinTwo, deliveriesMaxTwo));
     newLocationFromForm.pushHourlyData(new HourlyData(timeStringThree, pizzasMinThree, pizzasMaxThree, deliveriesMinThree, deliveriesMaxThree));
@@ -344,25 +344,9 @@ if (document.getElementById('form' || 'tables')){
   createStoreForm.addEventListener('submit', collectDataInfo);
 }
 
-// var totalPizzas;
-//
-// function numberOfPizzas(dataLocation){
-//   for (var i = 0; i < dataLocation.hourlyData[i].length; i++){
-//     totalPizzas += dataLocation.hourlyData[i].pizzasSold;
-//   };
-//
-//   var ballardTotal = numberOfPizzas(ballard);
-//   var sluTotal = numberOfPizzas(slu);
-//   var firstHillTotal = numberOfPizzas(firstHill);
-//   var georgetownTotal = numberOfPizzas(georgetown);
-//   var iDistrictTotal = numberOfPizzas(iDistrict);
-//
-//   var totalPizzasAdded = ballardTotal + sluTotal + firstHillTotal + georgetownTotal + iDistrictTotal;
-//
-//   if (document.getElementById('pizzasThisWeek')){
-//     var pizzaTag = document.getElementById('pizzasThisWeek');
-//     var pTag = document.createElement('p');
-//     pTag.textContent = totalPizzasAdded + ' pizzas today!';
-//     pTag.appendChild(pizzaTag);
-//   }
-// }
+if (document.getElementById('indexHtml')){
+  var howManyPizzas = getRandomIntInclusive(5, 500);
+  var soManyPizzas = document.createElement('p');
+  soManyPizzas.textContent = howManyPizzas + ' happy pizza odysseys this week!';
+  document.getElementById('pizzasThisWeek').appendChild(soManyPizzas);
+}
