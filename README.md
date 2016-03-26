@@ -1,16 +1,18 @@
 # pizza-odyssey
 ## homepage
 - Name of website in head tag  
-- store hours  
-- image placeholder
-- Coming up: ____ happy pizza odysseys this week!
+- Store locations  
+- Store hours  
+- Pizza image  
+- happy pizza odysseys number  
 
 ## css
-- google fonts  
-- color scheme  
+- Google fonts  
+- Color scheme  
+- Layout  
 
 ## javascript
-- object for every hour  
-- array of data  
-- rendering as list with loop for every location  
-- console.log() checks throughout  
+- Object constructor  
+- Function to repeat process for new location tables  
+- Event for reading and appending form input info to new table  
+- Random number generator for number of pizza odysseys  
