@@ -10,8 +10,6 @@ if (document.getElementById('salesDataHtml')){
     this.hourlyData = [];
   }
 
-  //Use constructor? ^^^^^^
-
   PizzaLocation.prototype.pushHourlyData = function(data){
     this.hourlyData.push(data);
   };
@@ -170,13 +168,6 @@ if (document.getElementById('salesDataHtml')){
     }
     return row;
   }
-  // var storeTableHeading = document.getElementById('thead');
-  // var storeHeading = document.createElement('h1');
-  // console.log('creating variable for h1 ', storeHeading);
-  //
-  // storeHeading.textContent = storeLocation;
-  // storeTableHeading.appendChild(storeHeading);
-  // console.log('displaying location heading');
 
   function repeatTable(dataLocation) {
 
