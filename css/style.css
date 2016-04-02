@@ -1,7 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(https://fonts.googleapis.com/css?family=Orbitron|Inconsolata|Exo);
 
 body {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Orbitron', sans-serif;
   background-color: #566273;
   font-size: 20px;
 }
@@ -21,7 +21,7 @@ a {
   color: white;
   background-color: #a64037;
   text-decoration: none;
-  border: 2px solid white;
+  border: 1px dashed white;
   border-radius: 10px;
   padding: 5px;
 }
@@ -42,6 +42,37 @@ img {
   display: block;
   margin: auto;
   border-radius: 120px;
+  border: 10px solid #d9a648;
+}
+
+img:hover {
+  animation: shake .5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-10px);
+  }
+
+  40% {
+    transform: translateX(10px);
+  }
+
+  60% {
+    transform: translateX(-10px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 h1 {
@@ -55,6 +86,7 @@ h1 {
   border: 2px solid white;
   border-radius: 15px;
   margin: 10px auto;
+  font-family: 'Exo', sans-serif;
 }
 
 header h1 {
@@ -62,7 +94,17 @@ header h1 {
   background-color: #592a49;
   width: 800px;
   border-radius: 30px;
-  border: 6px solid white
+  border: 6px solid white;
+  font-family: 'Orbitron', sans-serif;
+  padding: 20px;
+  color: #ddb05d;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: #a64037;
+}
+header h1:hover{
+  color: #a64037;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: white;
 }
 
 p {
@@ -71,25 +113,37 @@ p {
 }
 
 ul {
-  color: white;
+  color: #d9a648;
   font-size: 28px;
   text-align: center;
 }
 
 li {
-  color: #d9a648;
+  color: white;
   font-size: 20px;
   list-style-type: none;
 }
 
 form {
-  color: #d9a648;
-  width: 650px;
+  color: white;
   margin: 0 auto;
-  font-size: 16px;
+  font-size: 14px;
 }
 input {
-  margin: 5px;
+  margin: 3px;
+  opacity: .9;
+}
+legend {
+  font-size: 18px;
+  color: #d9a648;
+  padding-top: 5px;
+  width: 700px;
+  padding-left: 3px;
+  border-bottom: 1px dotted grey;
+  border-left: 1px dotted grey;
+}
+fieldset{
+  border: none;
 }
 
 table {
@@ -111,12 +165,23 @@ th {
 }
 
 button {
-  border-radius: 10px;
-  font-size: 20px;
-  background-color: #566273;
   color: white;
+  background-color: #a64037;
+  text-decoration: none;
+  border: 1px dashed white;
+  border-radius: 10px;
+  padding: 5px;
   display: block;
   margin: auto;
+}
+
+button:hover {
+  background-color: #d9a648;
+  transform: scale(1.2);
+}
+
+a:hover{
+  background-color: #d9a648;
 }
 
 fieldset {
